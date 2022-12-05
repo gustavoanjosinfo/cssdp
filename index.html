@@ -1,104 +1,456 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<!-- Define a utilização do portugês Brasil para a identificação de outros sites -->
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    <head>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <!-- Força o navegador Edge a executar a versão mais recente do HTML -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- Coleta a largura do dispositivo permitindo a reponsividade da página -->
+    <meta charset="UTF-8" />
+    <title>Minha Biografia</title>
 
-        <meta charset="UTF-8">
-        <title>Minha Bibliografia</title> 
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/form.css" />
+    <link rel="stylesheet" href="css/switch.css" />
+    <link rel="stylesheet" href="css/slide.css" />
 
-        <link rel="stylesheet" href="style.css">
+    <script defer>
+      function tempo() {
+        const body = document.getElementById("body");
+        const text = document.getElementById("dark-text");
+        const horario = new Date().getHours();
 
-    </head>
-    <body id="body">
-        
-        <nav id="menu">
-            <!-- Rounded switch -->
-            <div id="dark-light">
-                <p id="text-mode">Dark</p>
-                <label class="switch">
-                    <input type="checkbox">
-                    <span class="slider round"></span>
-                </label>
-            </div>
-            <ul>
-                <a href="#"><li><h2>Home</h2></li></a>
-                <a href="#"><li><h2>Biografia</h2></li></a>
-                <a href="#"><li><h2>Portfólio</h2></li></a>
-                <a href="#"><li><h2>Contato</h2></li></a>
-            </ul>
-        </nav>
+        if (horario >= 6 && horario <= 18) {
+          body.classList.replace("darkmode", "lightmode");
+          text.innerText = "Light Mode";
+        } else {
+          body.classList.replace("lightmode", "darkmode");
+          text.innerText = "Dark Mode";
+        }
+      }
 
-        <div id="capa" class="background-ps">
-            <div class="row">
-                <img src="./IMGs/lebi.jpeg" alt="Foto do GitHub">
+      function trocarTema() {
+        const body = document.getElementById("body");
+        const text = document.getElementById("dark-text");
 
-                <h1>Lorem Ipsum é simplesmente uma maravilha!</h1>
-            </div>
+        if (text.innerText == "Dark Mode") {
+          body.classList.replace("darkmode", "lightmode");
+          text.innerText = "Light Mode";
+        } else {
+          body.classList.replace("lightmode", "darkmode");
+          text.innerText = "Dark Mode";
+        }
+      }
+    </script>
+    <script src="js/slideshow.js" defer></script>
+  </head>
+  <body id="body" class="darkmode" onload="tempo()">
+    <nav>
+      <div id="dark-light">
+        <p id="dark-text">Dark Mode</p>
+
+        <!-- Rounded switch -->
+        <label class="switch">
+          <input type="checkbox" onclick="trocarTema()" />
+          <span class="slider round"></span>
+        </label>
+      </div>
+
+      <ul>
+        <a href="#"
+          ><li><h2>Home</h2></li></a
+        >
+        <a href="#biografia"
+          ><li><h2>Biografia</h2></li></a
+        >
+        <a href="#portfolio"
+          ><li><h2>Portfólio</h2></li></a
+        >
+        <a href="#contato"
+          ><li><h2>Contato</h2></li></a
+        >
+      </ul>
+    </nav>
+
+    <div id="capa" class="background-ps">
+      <div id="row-capa">
+        <img src="./IMGs/lebi.png" alt="Foto do GitHub" />
+
+        <h1>Lorem Ipsum é simplesmente uma</h1>
+      </div>
+    </div>
+
+    <div id="biografia" class="background-sp">
+      <div class="grid-item text">
+        <!-- "texto" faz a estilização -->
+        <h2>
+          Lorem Ipsum é simplesmente uma simulação de texto da indústria
+          tipográfica e de impressos, e vem sendo utilizado desde o século XVI,
+          quando um impressor desconhecido pegou uma bandeja de tipos e os
+          embaralhou para fazer um livro de modelos de tipos.
+        </h2>
+      </div>
+
+      <div class="grid-item content">
+        <div class="grid-item-item1 item">
+          <!-- "item" faz a estilização -->
+          <img src="./IMGs/ifc.png" alt="Logo da Instituição" />
+          <p>Curso Técnico em Informática Integrado ao Ensino Médio</p>
         </div>
 
+        <figure class="grid-item-item2 item">
+          <!-- "item" faz a estilização -->
+          <img src="./IMGs/ufsc.svg" alt="Logo da Instituição" />
+          <figcaption>
+            <p>Curso Técnico em Informática Integrado ao Ensino Médio</p>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
 
-        <div id="biografia" class="background-sp">
-            <div class="grid-item texto">
-                <h2>Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos.</h2>
+    <div id="portfolio" class="background-ps">
+      <div id="tecnologias">
+        <select name="" id="tec-ops">
+          <option value="">Tecnologia</option>
+          <option value="">Sustentabilidade</option>
+          <option value="">Educação</option>
+          <option value="">Empreendedorismo</option>
+        </select>
+
+        <div class="row">
+          <div class="col">
+            <div class="topo">
+              <input type="checkbox" name="HTML" />
+              <label for="HTML">HTML</label>
+            </div>
+            <div>
+              <input type="checkbox" name="CSS" />
+              <label for="CSS">CSS</label>
+            </div>
+          </div>
+
+          <div class="col center">
+            <div class="topo">
+              <input type="checkbox" name="JS" />
+              <label for="JS">JavaScript</label>
+            </div>
+            <div>
+              <input type="checkbox" name="Vue" />
+              <label for="Vue">Vue JS</label>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="topo">
+              <input type="checkbox" name="Python" />
+              <label for="Python">Python</label>
+            </div>
+            <div>
+              <input type="checkbox" name="Django" />
+              <label for="Django">Django</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="projetos">
+        <h2 style="color: var(--tertiary-color)">Projetos</h2>
+
+        <div class="container">
+          <div class="carousel-view">
+            <!-- Botão de voltar -->
+            <button id="prev-btn" class="prev-btn">
+              <svg viewBox="0 0 512 512" width="20" title="chevron-circle-left">
+                <path
+                  d="M256 504C119 504 8 393 8 256S119 8 256 8s248 111 248 248-111 248-248 248zM142.1 273l135.5 135.5c9.4 9.4 24.6 9.4 33.9 0l17-17c9.4-9.4 9.4-24.6 0-33.9L226.9 256l101.6-101.6c9.4-9.4 9.4-24.6 0-33.9l-17-17c-9.4-9.4-24.6-9.4-33.9 0L142.1 239c-9.4 9.4-9.4 24.6 0 34z"
+                />
+              </svg>
+            </button>
+
+            <!-- Items do slide -->
+            <div id="item-list" class="item-list">
+              <figure id="item-slide" class="item-slide">
+                <img src="./IMGs/menor.jpg" />
+                <figcaption>
+                  <h2>Portfólio</h2>
+                  <ul>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>JavaScript</li>
+                  </ul>
+                  <p>
+                    Este é trabalho para revisar os conteúdos iniciais de
+                    Desenvolvimento Web I.
+                  </p>
+                </figcaption>
+              </figure>
+
+              <figure id="item-slide" class="item-slide">
+                <img src="./IMGs/menor.jpg" />
+
+                <figcaption>
+                  <h2>Portfólio</h2>
+                  <ul>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>JavaScript</li>
+                  </ul>
+                  <p>
+                    Este é trabalho para revisar os conteúdos iniciais de
+                    Desenvolvimento Web II.
+                  </p>
+                </figcaption>
+              </figure>
+
+              <figure id="item-slide" class="item-slide">
+                <img src="./IMGs/menor.jpg" />
+
+                <figcaption>
+                  <h2>Portfólio</h2>
+                  <ul>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>JavaScript</li>
+                  </ul>
+                  <p>
+                    Este é trabalho para revisar os conteúdos iniciais de
+                    Desenvolvimento Web III.
+                  </p>
+                </figcaption>
+              </figure>
+
+              <figure id="item-slide" class="item-slide">
+                <img src="./IMGs/menor.jpg" />
+
+                <figcaption>
+                  <h2>Portfólio</h2>
+                  <ul>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>JavaScript</li>
+                  </ul>
+                  <p>
+                    Este é trabalho para revisar os conteúdos iniciais de
+                    Desenvolvimento Web III.
+                  </p>
+                </figcaption>
+              </figure>
+
+              <figure id="item-slide" class="item-slide">
+                <img src="./IMGs/menor.jpg" />
+
+                <figcaption>
+                  <h2>Portfólio</h2>
+                  <ul>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>JavaScript</li>
+                  </ul>
+                  <p>
+                    Este é trabalho para revisar os conteúdos iniciais de
+                    Desenvolvimento Web III.
+                  </p>
+                </figcaption>
+              </figure>
+
+              <figure id="item-slide" class="item-slide">
+                <img src="./IMGs/menor.jpg" />
+
+                <figcaption>
+                  <h2>Portfólio</h2>
+                  <ul>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>JavaScript</li>
+                  </ul>
+                  <p>
+                    Este é trabalho para revisar os conteúdos iniciais de
+                    Desenvolvimento Web III.
+                  </p>
+                </figcaption>
+              </figure>
+
+              <figure id="item-slide" class="item-slide">
+                <img src="./IMGs/menor.jpg" />
+                <figcaption>
+                  <h2>Portfólio</h2>
+                  <ul>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>JavaScript</li>
+                  </ul>
+                  <p>
+                    Este é trabalho para revisar os conteúdos iniciais de
+                    Desenvolvimento Web III.
+                  </p>
+                </figcaption>
+              </figure>
+
+              <figure id="item-slide" class="item-slide">
+                <img src="./IMGs/menor.jpg" />
+                <figcaption>
+                  <h2>Portfólio</h2>
+                  <ul>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>JavaScript</li>
+                  </ul>
+                  <p>
+                    Este é trabalho para revisar os conteúdos iniciais de
+                    Desenvolvimento Web III.
+                  </p>
+                </figcaption>
+              </figure>
+
+              <figure id="item-slide" class="item-slide">
+                <img src="./IMGs/menor.jpg" />
+                <figcaption>
+                  <h2>Portfólio</h2>
+                  <ul>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>JavaScript</li>
+                  </ul>
+                  <p>
+                    Este é trabalho para revisar os conteúdos iniciais de
+                    Desenvolvimento Web III.
+                  </p>
+                </figcaption>
+              </figure>
+
+              <figure id="item-slide" class="item-slide">
+                <img src="./IMGs/menor.jpg" />
+                <figcaption>
+                  <h2>Portfólio</h2>
+                  <ul>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>JavaScript</li>
+                  </ul>
+                  <p>
+                    Este é trabalho para revisar os conteúdos iniciais de
+                    Desenvolvimento Web III.
+                  </p>
+                </figcaption>
+              </figure>
+
+              <figure id="item-slide" class="item-slide">
+                <img src="./IMGs/menor.jpg" />
+                <figcaption>
+                  <h2>Portfólio</h2>
+                  <ul>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>JavaScript</li>
+                  </ul>
+                  <p>
+                    Este é trabalho para revisar os conteúdos iniciais de
+                    Desenvolvimento Web III.
+                  </p>
+                </figcaption>
+              </figure>
             </div>
 
-            <div class="grid-item content">
-                <div class="grid-item-item1 item">
-                    <img src="./IMGs/pequena.jpg" alt="Logo da Instituição">
-                    <p>Curso Técnico em Informática Integrado ao Ensino Médio</p>
-                </div>
+            <!-- Botão de prosseguir -->
+            <button id="next-btn" class="next-btn">
+              <svg
+                viewBox="0 0 512 512"
+                width="20"
+                title="chevron-circle-right"
+              >
+                <path
+                  d="M256 8c137 0 248 111 248 248S393 504 256 504 8 393 8 256 119 8 256 8zm113.9 231L234.4 103.5c-9.4-9.4-24.6-9.4-33.9 0l-17 17c-9.4 9.4-9.4 24.6 0 33.9L285.1 256 183.5 357.6c-9.4 9.4-9.4 24.6 0 33.9l17 17c9.4 9.4 24.6 9.4 33.9 0L369.9 273c9.4-9.4 9.4-24.6 0-34z"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
 
-                <figure class="grid-item-item2 item">
-                    <img src="./IMGs/pequena.jpg" alt="Logo da Instituição">
-                    <figcaption>
-                        <p>Curso Técnico em Informática Integrado ao Ensino Médio</p>
-                    </figcaption>
-                </figure>
+    <div id="contato" class="background-sp">
+      <form class="container" action="#">
+        <div class="row">
+          <div class="col">
+            <input
+              class="input input-first_name"
+              type="text"
+              placeholder="Nome"
+              required
+            />
+            <input
+              class="input input-last_name"
+              type="text"
+              placeholder="Sobrenome"
+            />
+          </div>
+          <div class="col">
+            <input
+              class="input input-email"
+              type="email"
+              name=""
+              id=""
+              placeholder="E-mail"
+              required
+            />
+            <input
+              class="input input-phone"
+              type="number"
+              name=""
+              id=""
+              placeholder="Contato"
+              required
+            />
+          </div>
+        </div>
+
+        <select name="" id="">
+          <option value="a">a</option>
+          <option value="b">b</option>
+          <option value="c">c</option>
+          <option value="d">d</option>
+        </select>
+        <div class="row">
+          <div class="col">
+            <div class="topo">
+              <input type="checkbox" name="HTML" />
+              <label for="HTML">HTML</label>
             </div>
-        </div>
-        
-        <div id="portfólio" class="background-ps">
-            <div>Tecnologias
-                <select name="" id="tec-ops">
-
-                </select>
-
+            <div>
+              <input type="checkbox" name="CSS" />
+              <label for="CSS">CSS</label>
             </div>
+          </div>
 
-            <div>Projetos</div>
+          <div class="col center">
+            <div class="topo">
+              <input type="checkbox" name="JS" />
+              <label for="JS">JavaScript</label>
+            </div>
+            <div>
+              <input type="checkbox" name="Vue" />
+              <label for="Vue">Vue JS</label>
+            </div>
+          </div>
 
+          <div class="col">
+            <div class="topo">
+              <input type="checkbox" name="Python" />
+              <label for="Python">Python</label>
+            </div>
+            <div>
+              <input type="checkbox" name="Django" />
+              <label for="Django">Django</label>
+            </div>
+          </div>
         </div>
+        <textarea
+          name=""
+          id=""
+          placeholder="Escreva sua necessidade..."
+        ></textarea>
 
-
-        <div id="contato" class="background-sp">
-
-            <form action="#">
-                <div>
-                    <input type="text" placeholder="Nome" />
-                    <input type="text" placeholder="Sobrenome" />
-                    <input type="email" name="" id="" placeholder="E-mail">
-                    <input type="number" name="" id="" placeholder="Contato">
-                </div>
-
-                <select name="" id="">
-
-                </select>
-                <p>checkbox</p>
-                <textarea name="" id="" placeholder="Escreva sua necessidade..."></textarea>
-
-                <button type="submit">ENVIAR</button>
-            </form>
-
-        </div>
-
-
-
-    </body>
-
+        <button type="submit">ENVIAR</button>
+      </form>
+    </div>
+  </body>
 </html>
